@@ -93,7 +93,7 @@ def get_updates(token):
         parametros ["offset"] = updates_id[-1] + 1
     except IndexError:
         pass
-    print (parametros)
+    #print (parametros) #debug
     rsp = requests.get(f"{BASE_URL}/getUpdates", params=parametros)
 
     #pprint(rsp.json()["result"]) # debug
@@ -128,6 +128,7 @@ def register_message(sql: SQL, data, tkn):
     try:
         msg.add(data["chat"]["id"], data["message_id"], data["text"])
     except KeyError:
+        #Si la clase devuelta es "photo", busca su id y la descarga en la carpeta "images"
         file_id = data["photo"][0]["file_id"]
         print(f"downlaod_image return: {download_image(file_id, TELEGRAM_TOKEN)}")
 
@@ -139,16 +140,17 @@ def respond_message(data, tkn):
 
 
 def continuar_interaccion(data, tkn):
+    #Manda un mensaje adicional con una pregunta para que el usuario pregunte algo especifico
     cant_interacciones = len(get_updates_id("telegram.db","tlg_update"))
     print (cant_interacciones)
-    while True:
-        send_message(
-            f"Genial! Que informacion quieres que te de hoy?",
-            data["chat"]["id"], tkn
-        )
-        break
+    send_message(
+        f"Genial! Que informacion quieres que te de hoy?",
+        data["chat"]["id"], tkn
+    )       
 
 def peticion_del_usuario (database,data,tkn):
+    #Busca en la base de datos cual es la ultima peticion del usuario para compararla con los
+    #scripts de respuesta
     conn = sqlite3.connect(database)
 
     cursor = conn.cursor()
@@ -161,21 +163,17 @@ def peticion_del_usuario (database,data,tkn):
 
     conn.close()
     print (mensajes)
+    try:
+        return str(mensajes[-1])
+    except ValueError:
+        send_message(
+        f"Procesando...",
+        data["chat"]["id"], tkn
+    )
 
-    while True:
-        try:
-            return str(mensajes[-1])
-        except ValueError:
-            send_message(
-            f"Procesando...",
-            data["chat"]["id"], tkn
-        )
-            pass
-        else:
-            break
 
 def download_image(file_id, bot_token):
-    # Returns the local path to the downloaded file
+    # Devuelve la ruta local para la descarga del archivo
     response = requests.get(
         f"https://api.telegram.org/bot{bot_token}/getFile?file_id={file_id}"
     )
