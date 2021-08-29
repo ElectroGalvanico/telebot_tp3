@@ -16,7 +16,7 @@ nombre del grupo y mail, por cada integrante. Llegada la fecha se pasara el link
 
 **Forma de trabajo:**
 
-Un participante del grupo debe hacer un fork de este repositorio. 
+Un participante del grupo debe hacer un fork de este repositorio.
 El equipo trabaja sobre el repositorio forkeado.
 
 
@@ -32,22 +32,22 @@ El equipo trabaja sobre el repositorio forkeado.
 
 ## :dart: Consignas
 
-Las consignas se diven en dos tipos, la primer parte son consignas que requieren modificar el codigo. La segunda son preguntas para ser respondidas, pueden tener pseudocodigo pero no es necesario modificar el proyecto. 
+Las consignas se diven en dos tipos, la primer parte son consignas que requieren modificar el codigo. La segunda son preguntas para ser respondidas, pueden tener pseudocodigo pero no es necesario modificar el proyecto.
 
-La 4 es opcional. 
+La 4 es opcional.
 
-1. La funcion `register_message` en `telebot/telegram.py` cumple dos funciones en una: Registrar un mensaje en la base de datos y mandar un mensaje de bienvenida. 
+1. La funcion `register_message` en `telebot/telegram.py` cumple dos funciones en una: Registrar un mensaje en la base de datos y mandar un mensaje de bienvenida.
 Evaluar dicha funcion y separar ambas tareas.
 
-2. Actualmente `get_updates` en `telebot/telegram.py` obtiene siempre toda la lista de novedades desde la API de telegram, sin embargo se le puede pasar un offset para traer mensajes desde el ultimo lugar que se leyo. Hacer los cambios necesarios para que traiga los mensajes en base a lo que guardo en la base de datos.
+2. Actualmente `get_updates` en `telebot/telegram.py` obtiene siempre toda la lista de novedades desde la API de telegram, sin embargo se le puede pasar un offset para traer mensajes desde el ultimo lugar que se leyo. Hacer los cambios necesarios para que traiga los mensajes en base a lo que guardado en la base de datos.
 
 Leer: https://core.telegram.org/bots/api#update, los parametros de `offset` y `limit` en el apartado de `getUpdates`.
 
 3. Que pasa si al chat se envia una imagen en vez de un texto?
-Realizar los cambios necesarios para manejar dicha situacion. La imagen se puede guardar en el filesystem o la base de datos, pero es opcional, puede descartarse. 
+Realizar los cambios necesarios para manejar dicha situacion. La imagen se puede guardar en el filesystem o la base de datos, pero es opcional, puede descartarse.
 
 **Opcional**
-4. El bot solamente responde un mensaje de bienvenida. Continuar la interaccion con el bot o bien segun cual sea el mensaje de saludo dar alguna informacion determinada como el precio del dolar, el clima, etc. 
+4. El bot solamente responde un mensaje de bienvenida. Continuar la interaccion con el bot o bien segun cual sea el mensaje de saludo dar alguna informacion determinada como el precio del dolar, el clima, etc.
 
 Las siguientes son consignas para responder en [respuestas.txt](respuestas.txt):
 
@@ -64,12 +64,12 @@ Las siguientes son consignas para responder en [respuestas.txt](respuestas.txt):
 
 `telebot/conf.py` levanta la informacion del token del bot de un archivo `.env`. El repositorio de git tiene un `.gitignore` que impide que el archivo quede registrado en git/github. Tener en cuenta que si pone las credenciales en el codigo o en otros archivos esa informacion puede quedar publica.
 
-## :zap: Recomendaciones 
+## :zap: Recomendaciones
 
 1. Antes que nada, reproducir el environment. Esto significa tener una copia local del proyecto, probar la creacion de virtualenv, ejecutar el codigo, crear un bot, y asegurarse que todo funciona.
 2. Utilizar https://github.com/digitalers2021/git_errors para probar el workflow de trabajo del equipo. Estar segur@s primero con como se va a trabajar en equipo.
 3. El proyecto consta de varios archivos. Si se trabaja en paralelo lo recomendable es trabajar en archivos distintos para evitar conflictos al momento de un merge.
-4. Cualquier problema es reversible. Si se tiene dudas con alguna operacion a realizarse en github, asegurarse que algun compañer@ tenga una copia saludable del repositorio. Pushear codigo a github. 
+4. Cualquier problema es reversible. Si se tiene dudas con alguna operacion a realizarse en github, asegurarse que algun compañer@ tenga una copia saludable del repositorio. Pushear codigo a github.
 
 
 (1) Refactoring:
@@ -78,11 +78,11 @@ Refactoring es una practica muy comun en el desarrollo de software y un topic ba
 
 "Refactorear es una tecnica para reestructurar el cuerpo del codigo, alterando su estructura interna sin modificar su comportamiento exterior".  Martin Fowler.
 
-Lo que nos importa en la refactorizacion es tener un codigo "mas limpio" preservando las APIs. En este caso nuestras api seran: `get_updates`, `send_message` e `init`. 
+Lo que nos importa en la refactorizacion es tener un codigo "mas limpio" preservando las APIs. En este caso nuestras api seran: `get_updates`, `send_message` e `init`.
 
-Por que si el codigo funciona es necesario refactorizar? Porque ante la necesidad de agregar nueva funcionalidad, si internamente el codigo se encuentra desordenado haciendo dificil razonar sobre él, el costo de agregar nueva funcionalidad va a ser cada vez mas alto. 
+Por que si el codigo funciona es necesario refactorizar? Porque ante la necesidad de agregar nueva funcionalidad, si internamente el codigo se encuentra desordenado haciendo dificil razonar sobre él, el costo de agregar nueva funcionalidad va a ser cada vez mas alto.
 
-Por otro lado preservar las interfaces (APIs) hace a la usabilidad de nuestro codigo, da previsibilidad a quienes tengan que trabajar con el, y nos permite ocultar la complejidad de ciertas operaciones en un interfaz limpia `requests.get("https://www.google.com")` 
+Por otro lado preservar las interfaces (APIs) hace a la usabilidad de nuestro codigo, da previsibilidad a quienes tengan que trabajar con el, y nos permite ocultar la complejidad de ciertas operaciones en un interfaz limpia `requests.get("https://www.google.com")`
 
 **Trabajar en un proyecto de software tiene que ser comodo primero para quienes trabajan en dicho codigo.**
 

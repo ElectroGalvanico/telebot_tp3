@@ -12,8 +12,8 @@ class SQL:
         self.conn = sqlite3.connect(dbfile)
 
     def setup_db(self, tables: List[str]):
-        """ 
-        Recive una lista de strings con DDL 
+        """
+        Recive una lista de strings con DDL
         para la creacion de cada una de
         las tablas.
         """

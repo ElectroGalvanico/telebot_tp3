@@ -21,7 +21,7 @@ class Update:
         print(self.table)
 
     def add(self, update_id):
-        """ Agrega un chat 
+        """ Agrega un chat
         Para eso necesita el cursor, inserta los datos
         hace el commit y cierra el cursor.
         """
@@ -55,7 +55,7 @@ class Message:
         print(self.table)
 
     def add(self, chat_id, msg_id, text):
-        """ Agrega un chat 
+        """ Agrega un chat
         Para eso necesita el cursor, inserta los datos
         hace el commit y cierra el cursor.
         """
@@ -69,7 +69,7 @@ class Message:
         cur.close()
 
     def last_message_from(self, chat_id):
-        """ en base un chat_id obtiene el ultimo mensaje 
+        """ en base un chat_id obtiene el ultimo mensaje
         leido de ese chat """
 
         _select = f"""select * from {self._name} where chat_id = {chat_id} order by msg_id"""
