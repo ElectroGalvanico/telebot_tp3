@@ -6,11 +6,13 @@ import requests
 import sqlite3
 
 # from test import get_updates_id
+from telebot.conf import open_env
 from telebot.db import SQL
 from telebot.models import Message
 from PIL import Image
 
-TELEGRAM_TOKEN = "test"
+options = open_env()
+TELEGRAM_TOKEN = options["TELEGRAM_TOKEN"]
 
 
 def send_message(msg, chatid, token):
