@@ -10,7 +10,7 @@ from telebot.db import SQL
 from telebot.models import Message
 from PIL import Image
 
-TELEGRAM_TOKEN= "1997016618:AAFyB0L5CDG44dFjIj5pkjboJNBJZJNamGg"
+TELEGRAM_TOKEN = "test"
 
 
 def send_message(msg, chatid, token):
