@@ -62,8 +62,8 @@ def test_main():
     objeto.print_something()
 
 '''
-#bot_token = "1997016618:AAFyB0L5CDG44dFjIj5pkjboJNBJZJNamGg"
-#file_id = "AgACAgEAAxkBAAMgYSvaregAAetuoic-Im2GEDepRDOtAAJKqjEb-txgRX_q-gMNaljYAQADAgADeAADIAQ"
+#bot_token = test
+#file_id = test
 #print(f"downlaod_image return: {telegram.download_image(file_id, bot_token)}")
 
  
