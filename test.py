@@ -34,7 +34,7 @@ filesystem o la base de datos, pero es opcional, puede descartarse.
 
 Resuelto en las lineas 128 a 133 de telegram.py. Agregando una excepcion y llamando a una nueva
 funcion llamada "download_image" (lineas 175 a 189 de telegram.py), se pudo lograr capturar la
-imagen enviada y guardarla en la carpeta images (aunque algo pequeña(arreglar)).
+imagen enviada y guardarla en la carpeta images.
 
 4. El bot solamente responde un mensaje de bienvenida. Continuar la interaccion con el bot o bien
 segun cual sea el mensaje de saludo dar alguna informacion determinada como el precio del dolar,

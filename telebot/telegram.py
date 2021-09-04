@@ -131,7 +131,7 @@ def register_message(sql: SQL, data, tkn):
         msg.add(data["chat"]["id"], data["message_id"], data["text"])
     except KeyError:
         #Si la clase devuelta es "photo", busca su id y la descarga en la carpeta "images"
-        file_id = data["photo"][0]["file_id"]
+        file_id = data["photo"][2]["file_id"]
         print(f"downlaod_image return: {download_image(file_id, TELEGRAM_TOKEN)}")
 
 
@@ -180,10 +180,17 @@ def download_image(file_id, bot_token):
         f"https://api.telegram.org/bot{bot_token}/getFile?file_id={file_id}"
     )
 
+    #print (response) #debug
+
     file_path = response.json()["result"]["file_path"]
+
+    #print (file_path) #debug
+
     response = requests.get(
        f"https://api.telegram.org/file/bot{bot_token}/{file_path}"
     )
+
+    #print (response) #debug
 
     local_filename = f"images/{file_id}.png"
     with open(local_filename, 'wb') as f:
