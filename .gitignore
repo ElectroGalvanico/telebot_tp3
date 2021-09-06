@@ -233,3 +233,7 @@ tags
 #Imagenes
 
 images/
+
+# Ignorar todos los archivos contenidos en env
+
+env

@@ -69,4 +69,3 @@ def test_main():
  
 # https://www.dustloop.com/wiki/images/thumb/5/5f/DBFZ_SS4Gogeta_x100BigBangKamehameha.png/800px-DBFZ_SS4Gogeta_x100BigBangKamehameha.png
 # Probando imagenes
-
